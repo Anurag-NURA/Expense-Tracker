@@ -9,32 +9,31 @@ const PORT = 3000;
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json("Home Page")
+  res.json("Home Page");
 });
 
 app.get("/expenses", userRoleValidator(["ca", "government"]), (req, res) => {
   res.json({
-    'Monthly Income': '40K',
-    'Annual Income': '12L'
-  })
-})
+    "Monthly Income": "40K",
+    "Annual Income": "12L",
+  });
+});
 
-app.get("/expenses/:id", userRoleValidator(['user1', 'user2']), (req, res) => {
+app.get("/expenses/:id", userRoleValidator(["user1", "user2"]), (req, res) => {
   res.json({
-    'Food': 250,
-    'Electricity Bill': 1000,
-    'Transport Bill': 800
-  })
-})
+    Food: 250,
+    "Electricity Bill": 1000,
+    "Transport Bill": 800,
+  });
+});
 
 app.post("/expenses/addInfo", (req, res) => {
-
   const schema = {
     name: String,
     email: String,
     age: Number,
-    country: String
-  }
+    country: String,
+  };
 
   const errors = objectValidator(req.body, schema);
   if (errors?.length > 0) {
@@ -42,8 +41,8 @@ app.post("/expenses/addInfo", (req, res) => {
   } else {
     return res.status(200).json({ message: "Info is Valid" });
   }
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running at port: ${PORT}...`);
-})
+});
