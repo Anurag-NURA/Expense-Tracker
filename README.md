@@ -1,1 +1,3 @@
-# Expense-Tracker
+# Expense-Tracker project
+
+### Three team project
