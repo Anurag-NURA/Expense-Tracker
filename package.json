@@ -4,6 +4,7 @@
   "description": "### Three team project",
   "main": "objectValidator.js",
   "scripts": {
+    "test": "echo 'Error: no test specified'; false",
     "lint": "eslint",
     "prepare": "husky install"
   },
